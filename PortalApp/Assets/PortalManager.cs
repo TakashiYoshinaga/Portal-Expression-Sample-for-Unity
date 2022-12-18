@@ -48,7 +48,7 @@ public class PortalManager : MonoBehaviour
         Debug.Log("Portal Entered");  
         //カメラの座標をゲートを原点にしたローカル座標に変換
         Vector3 localPos = transform.InverseTransformPoint(Camera.main.transform.position);
-        //カメラがゲートの中心から横方向に0.5m以上離れている場合は無視
+        //カメラがゲートの中心から横方向に0.5以上離れている場合は無視。(Quadは-0.5<=x<=0.5で定義されている)
         if(Mathf.Abs(localPos.x)>0.5f) return; 
         //Alwaysを指定してWorldを常に表示
         SetStencilComparison(CompareFunction.Always);  
